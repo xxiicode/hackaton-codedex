@@ -1,0 +1,60 @@
+body {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+main {
+    width: 90%;
+    margin: 0 auto;
+    background-color: red;
+    padding: 20px;
+
+}
+.cards {
+    background-color: aqua;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilos del banner */
+.banner {
+    background-color: #ffcc00; /* Color amarillo llamativo */
+    color: #000; /* Texto negro */
+    font-family: "Comic Sans MS", cursive, sans-serif; /* Fuente noventera */
+    font-size: 24px; /* Tamaño grande */
+    font-weight: bold; /* Negrita */
+    overflow: hidden; /* Esconde el texto fuera del contenedor */
+    white-space: nowrap; /* Evita que el texto se corte en varias líneas */
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidad */
+    margin: 0;
+    padding: 0;
+}
+
+/* Animación del texto */
+.banner span {
+    display: inline-block; /* Necesario para animar correctamente */
+    padding-left: 100%; /* Empieza fuera de la pantalla */
+    animation: moveText 27s linear infinite; /* Animación infinita */
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateX(0%); /* Inicia fuera por la derecha */
+    }
+    100% {
+        transform: translateX(-30%); /* Sale completamente por la izquierda */
+    }
+}
