@@ -1,7 +1,10 @@
+/* Generals */
+
 body {
     font-family: "Comic Sans MS", cursive, sans-serif;
     margin: 0;
     padding: 0;
+    cursor: none;
 }
 
 h1 {
@@ -13,48 +16,446 @@ h1 {
 h2 {
     font-size: 1.5em;
     margin-bottom: 1em;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
-main {
+.container {
     width: 90%;
     margin: 0 auto;
     background-color: red;
     padding: 20px;
 
 }
+
+
+/* SECTION NAV */
+.gif-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    & nav {
+        display: flex;
+        margin: 20px auto;
+        text-align: center;
+        justify-content: space-around;
+        background: red;
+        width: 400px;
+        border-radius: 20px;
+        padding: 10px;
+
+        & button {
+            background: #ffcc00;
+            border: none;
+            border-radius: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+
+            &:hover {
+                background-color: #f1fdae;
+            }
+        }
+    }
+}
+
+/* SECTION MAIN */
+main {
+    display: grid;
+    grid-template-areas:
+        "pkm-logo cards"
+        "aside cards"
+        "adds cards";
+    grid-template-columns: 200px 3fr;
+    grid-template-rows: 100px 1fr auto;
+    align-items: start;
+
+    /* LOGO PKM */
+    & .pkm-logo {
+        grid-area: pkm-logo;
+
+        & img {
+            max-width: 200px;
+        }
+    }
+}
+
+body#home main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+}
+
+/* ADDS */
+& .adds {
+    grid-area: adds;
+
+    & .hover {
+        width: 100%;
+
+        &:hover {
+            border: 5px solid yellow !important;
+        }
+    }
+
+    & img#pikachuAdds {
+        width: auto;
+        margin-inline: auto;
+        display: block;
+    }
+
+}
+
+/* COVER VACIO */
+& .cover {
+    text-align: center;
+    grid-area: cover;
+
+    &>p {
+        border-radius: 3px;
+        text-wrap: balance;
+        margin-top: 50px;
+        max-width: 80%;
+        text-align: center;
+        margin-inline: auto;
+        font-size: 2rem;
+        background: white;
+        padding: 20px 40px;
+        padding-bottom: 60px;
+
+        & a {
+            & button {
+                background-color: #ffcc00;
+                border: 2px solid;
+                border-radius: 3px;
+                padding: 5px 10px;
+                cursor: none;
+                font-weight: bold;
+                text-transform: uppercase;
+                text-decoration: none;
+                color: #000;
+                box-shadow: 0 0 5px #000;
+
+                &:hover {
+                    background-color: #f1fdae;
+                }
+            }
+        }
+        }
+    }
+
+
+
+/* SECTION ASIDE */
+aside {
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    grid-area: aside;
+    gap: 30px;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+
+    & button {
+        border-radius: 2px;
+        padding: 5px 10px;
+        width: 150px;
+        background-color: #ffcc00;
+        color: #000;
+        cursor: none;
+        display: grid;
+        grid-template-columns: 30% 70%;
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+        text-transform: uppercase;
+        font-weight: bold;
+
+        & .new {
+            position: absolute;
+            top: -9px;
+            right: -20px;
+            background-color: #ff0000;
+            color: #fff;
+            border-radius: 50%;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+            transform: rotate(25deg);
+            padding: 8px 12px;
+            box-shadow: 0 0 5px #000;
+            animation: growNew 1s infinite;
+        }
+
+        & img {
+            width: 50px !important;
+            max-width: unset;
+        }
+
+        &:hover {
+            background-color: #f1fdae;
+            transform: scale(1.1);
+        }
+
+        &.active {
+            background-color: #e0ff33;
+            box-shadow: 0 0 10px #000;
+        }
+    }
+}
+
+/* SECTION CARDS CONTAINER */
 .cards {
     background-color: aqua;
     padding: 20px;
     text-align: center;
+    grid-area: cards;
+    height: 840px;
+    position: relative;
+    margin-left: 10px;
+
+    & #cards-db {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    & div.pagination {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 20px;
+        bottom: 10px;
+        inset-inline: 1px;
+        position: absolute;
+        width: 300px;
+        margin-inline: auto;
+
+        & button.pagination:hover {
+            transform: scale(0.8);
+            cursor: none;
+        }
+    }
+
+
+
 }
+
+
+
+
 
 /* Estilos del banner */
 .banner {
-    background-color: #ffcc00; /* Color amarillo llamativo */
-    color: #000; /* Texto negro */
-    font-family: "Comic Sans MS", cursive, sans-serif; /* Fuente noventera */
-    font-size: 24px; /* Tamaño grande */
-    font-weight: bold; /* Negrita */
-    overflow: hidden; /* Esconde el texto fuera del contenedor */
-    white-space: nowrap; /* Evita que el texto se corte en varias líneas */
-    width: 100%; /* Ocupa todo el ancho de la pantalla */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidad */
+    background-color: #ffcc00;
+
+    color: #000;
+
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 10px 0 20px 0;
     margin: 0;
-    padding: 0;
+    position: relative;
+    z-index: 10;
+
+    & span {
+        display: inline-block;
+        padding-left: 100%;
+        animation: moveText 27s linear infinite;
+    }
 }
 
-/* Animación del texto */
-.banner span {
-    display: inline-block; /* Necesario para animar correctamente */
-    padding-left: 100%; /* Empieza fuera de la pantalla */
-    animation: moveText 27s linear infinite; /* Animación infinita */
+
+
+
+/* HOME*/
+
+#home-logo {
+    animation: growLogo 2s infinite;
 }
+
+
+
+
+
+/* MEDIAQUERIES */
+
+@media screen and (max-width: 768px) {
+
+    .container {
+        width: auto;
+    }
+
+    main {
+        grid-template-areas:
+            "pkm-logo"
+            "aside"
+            "cards"
+            "adds";
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .pkm-logo {
+        margin-inline: auto;
+        background: white;
+        width: 100%;
+        max-width: 335px;
+        text-align: center;
+    }
+
+    .cards {
+        margin-left: 0;
+        height: auto;
+
+        & img {
+            width: 45%;
+
+        }
+    }
+
+    aside {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        & button {
+            width: 107px;
+
+            & img {
+                width: unset !important;
+            }
+
+            & .new {
+                padding: 4px 6px;
+            }
+        }
+    }
+
+    nav {
+        width: unset !important;
+        gap: 14px;
+        margin: 5px auto !important;
+        & button {
+            font-size: 10px;
+        }
+    }
+
+    .gif-container {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .gif-container img {
+        margin-bottom: 10px;
+        width: 86%;
+    }
+
+    #cards-db {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding-bottom: 50px;
+
+    }
+
+
+    div.pagination {
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+        position: relative;
+    }
+
+    #custom-cursor {
+        display: none;
+    }
+
+    .cover {
+        &>p {
+            font-size: 1rem;
+            & a {
+                margin-top: 30px;
+                display: block;
+            }
+        }
+    }
+}
+
+/* END MEDIAQUERIES */
+
+
+/* Components  */
+
+#custom-cursor {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: url('/assets/imgs/cursor.gif') no-repeat center center;
+    background-size: contain;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+
+/* Animations */
 
 @keyframes moveText {
     0% {
-        transform: translateX(0%); /* Inicia fuera por la derecha */
+        transform: translateX(0%);
+        /* Inicia fuera por la derecha */
     }
+
     100% {
-        transform: translateX(-30%); /* Sale completamente por la izquierda */
+        transform: translateX(-30%);
+        /* Sale completamente por la izquierda */
+    }
+}
+
+@keyframes growNew {
+    0% {
+        transform: scale(1) rotate(20deg);
+
+    }
+
+    50% {
+        transform: scale(1.2) rotate(20deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(20deg);
+    }
+}
+
+@keyframes growLogo {
+    0% {
+        transform: scale(1);
+
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }

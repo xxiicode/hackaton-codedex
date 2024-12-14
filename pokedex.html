@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Pokemon in the 90's</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="assets/reset.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body id="pokedex">
+    <div id="custom-cursor"></div>
+    <header id="header">
+        <!-- Insert HEADER -->
+    </header>
+
+    <main class="container">
+
+        <!-- pokemon logo -->
+        <section class="pkm-logo">
+            <img src="./assets/imgs/pokemon-logo.jpg" alt="Pokemon">
+        </section>
+        <!-- ASIDE SETS -->
+        <aside>
+            <button data-set="base1" class="set-btn" id="base-set"><img src="./assets/imgs/fairy.gif">Base Set</button>
+            <button data-set="base2" class="set-btn" id="jungle"><img src="./assets/imgs/ponita.gif">Jungle</button>
+            <button data-set="base3" class="set-btn" id="fossil"><img src="./assets/imgs/geodude.gif">Fossil</button>
+            <button data-set="base5" class="set-btn" id="team-rocket"><img src="./assets/imgs/gengar.gif">Team
+                Rocket<span class="new">new!</span></button>
+        </aside>
+
+        <!-- ADDS -->
+        <article class="adds">
+            <img id="pikachuAdds" src="/assets/imgs/pikachuCanCan.gif" alt="more pkm">
+            <img class="hover" id="top20" src="/assets/imgs/pokemontop20.gif" alt="more pkm">
+            <div class="hover" style="border: 2px solid black; 
+                        text-align: center;
+                        text-transform: uppercase;">
+                <a target="_blank" href="https://pokemontcg.guru/set/nintendo-black-star-promos/np">
+                    <p>next millenium pkms</p>
+                    <img src="./assets/imgs/boton.gif" alt="more pkm">
+                </a>
+            </div>
+            <a target="_blank" href="https://youtu.be/hlh4jKv184E?si=Q-jE2I6PUXejzcDX" title="a YT adventure">
+                <img class="hover" src="/assets/imgs/promoPokemonWB.gif" alt="more pkm">
+            </a>
+            <img id="logos" class="hover" src="./assets/imgs/logos.gif" alt="more pkm">
+
+            <a href="#set-title" title="Gengar Secret"><img class="hover" id="gengar-dream"
+                    src="/assets/imgs/button.gif" alt="more pkm"></a>
+
+            <img class="" style="width: 100%;" src="/assets/imgs/tokei_pika01.gif" alt="more pkm">
+        </article>
+
+        <!-- COVER EMPTY -->
+        <section class="cover">
+        </section>
+
+        <!-- CARDS CONTAINER -->
+        <section class="cards">
+            <!-- SET TITLE -->
+            <h2 id="set-title"> <!-- TITLE HERE --> </h2>
+
+            <section id="cards-db">
+                <!-- CARDS ARE INSERTED HERE -->
+            </section>
+
+            <!-- PAGINATION -->
+            <div class="pagination">
+                <button class="pagination" id="prev-btn"><img src="/assets/imgs/1back.gif"></button>
+                <span id="current-page"></span>
+                <button class="pagination" id="next-btn"><img src="/assets/imgs/1next.gif"></button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="assets/script.js"></script>
+</body>
+
+</html>
