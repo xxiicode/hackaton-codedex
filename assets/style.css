@@ -1,7 +1,18 @@
 /* Generals */
+@font-face {
+    font-family: 'ComicSans';
+    src: url('../assets/comicsans_regular.ttf') format('truetype');
+    font-weight: normal;
+  }
+  
+  @font-face {
+    font-family: 'ComicSans';
+    src: url('../assets/comicsans_bold.ttf') format('truetype');
+    font-weight: bold;
+  }
 
 body {
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: "ComicSans", cursive, sans-serif;
     margin: 0;
     padding: 0;
     cursor: none;
