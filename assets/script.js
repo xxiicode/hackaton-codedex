@@ -83,6 +83,7 @@ if (bodyElement.id === "pokedex") {
             plinkSound.play();
         }
         firsttimeNoSound = false;
+        setupCardClickListener();
 
     }
 
@@ -256,3 +257,47 @@ if (banner) {
 
     observer.observe(banner); // Comienza a observar el banner
 }
+
+// MODAL
+
+const closeModal = document.querySelector('.close');
+const modal = document.getElementById('modal');
+
+
+function modifyImageUrl(src) {
+    return src.replace(/\.png$/, '_hires.png');
+}
+
+function setupCardClickListener() {
+    const cards = document.querySelectorAll('.card');
+    const modalImage = document.getElementById('modal-image');
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const originalSrc = card.src;
+            const newSrc = modifyImageUrl(originalSrc);
+
+            // Actualiza la imagen del modal
+            modalImage.src = newSrc;
+
+            // Muestra el modal (asegúrate de tener un estilo para hacerlo visible)
+            modalImage.style.display = 'block';
+            modal.style.display = 'flex';
+        });
+    });
+}
+
+
+
+
+// Function to close the modal
+closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+// Close the modal when clicking outside of the modal content
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
