@@ -1,5 +1,4 @@
 console.log("hello from script.js");
-const bodyElement = document.body;
 
 // AUDIO PLAYER
 const itemFound = new Audio('assets/sounds/item-found.mp3');
@@ -9,10 +8,11 @@ const recoverySound = new Audio('assets/sounds/recovery.mp3');
 const gengarSound = new Audio('assets/sounds/gengar.mp3');
 const catchSound = new Audio('assets/sounds/pokemon-catch.mp3');
 const battleSound = new Audio('assets/sounds/battle.mp3');
+const bodyElement = document.body;
 
-
-// POKEMON TCG API
+// POKEMON API
 //
+// Check if the current page is the pokedex
 if (bodyElement.id === "pokedex") {
     //variables initialization
     let firsttimeNoSound = true;
@@ -87,7 +87,7 @@ if (bodyElement.id === "pokedex") {
 
     }
 
-    // ASIDE - change the set of cards
+    // ASIDE buttons - change the set of cards
     document.querySelectorAll('.set-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             dataSet = e.target.dataset.set;
@@ -142,7 +142,7 @@ if (bodyElement.id === "pokedex") {
 
 
 
-    // Play Pikachu sound
+    // Play Pikachu sound gif
     const pikachu = document.getElementById('pikachuAdds');
     if (pikachu) {
         pikachu.addEventListener('mouseenter', () => {
@@ -152,7 +152,7 @@ if (bodyElement.id === "pokedex") {
         })
     };
 
-    // adds sounds 
+    // adds extra sounds on adds
     const top20 = document.getElementById('top20');
     const logos = document.getElementById('logos');
 
@@ -170,7 +170,7 @@ if (bodyElement.id === "pokedex") {
     };
 
 
-    // Gengar Dream fetch
+    // Gengar Dream fetch (secret easteregg)
     const gengar = document.getElementById('gengar-dream');
     if (gengar) {
         gengar.addEventListener('click', () => {
@@ -194,7 +194,7 @@ if (bodyElement.id === "pokedex") {
 
 
 
-    // calling the functions
+    // calling the functions on load
     fetchCards(currentPage);
     setTitle();
     document.getElementById('base-set').classList.add('active');
@@ -202,6 +202,7 @@ if (bodyElement.id === "pokedex") {
 }
 
 // Custom cursor
+//
 if (window.innerWidth > 900) {
 
     const cursor = document.getElementById('custom-cursor');
@@ -212,17 +213,15 @@ if (window.innerWidth > 900) {
     });
 }
 
-// handle error on Catch
+// handle errors on Catch
+//
 function handleFetchError(error) {
     cardContainer.innerHTML = '<p>Error loading cards. Please try again.</p>';
     console.error('Error fetching data:', error);
 }
 
-
-
-
-
-// Injection of html
+// Injection of html (header) into the pages
+//
 const header = document.getElementById('header');
 if (header) {
     fetch('header.html')
@@ -235,39 +234,39 @@ if (header) {
     console.error('Header element not found');
 }
 
-
-
-// home
-
+// home scripts
+//
+// Sound on reaching the footer banner
 const banner = document.getElementById('banner-sound');
 let soundPlayed = false; // Variable de control para asegurarse de que el sonido se reproduce solo una vez
 
 if (banner) {
-    // Creamos el IntersectionObserver
+    // The sound is played when the banner is visible
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting && !soundPlayed) {
-                // Si el banner está visible y el sonido aún no se ha reproducido
-                battleSound.currentTime = 0; // Reinicia el sonido
-                battleSound.play(); // Reproduce el sonido
-                soundPlayed = true; // Marca que el sonido ya se ha reproducido
+                // if the banner is visible and the sound has not been played yet
+                battleSound.currentTime = 0;
+                battleSound.play();
+                soundPlayed = true;
             }
         });
-    }, { threshold: 0.5 }); // El sonido se activa cuando el 50% del banner es visible
+    }, { threshold: 0.5 }); 
 
-    observer.observe(banner); // Comienza a observar el banner
+    observer.observe(banner); // Start observing the banner
 }
 
-// MODAL
-
+// MODAL on clicking the cards
+//
 const closeModal = document.querySelector('.close');
 const modal = document.getElementById('modal');
 
-
+// Function to modify the image URL to get the bigger version without fetching the API again
 function modifyImageUrl(src) {
     return src.replace(/\.png$/, '_hires.png');
 }
 
+// Function to set up the click event listener for the cards
 function setupCardClickListener() {
     const cards = document.querySelectorAll('.card');
     const modalImage = document.getElementById('modal-image');
@@ -277,27 +276,25 @@ function setupCardClickListener() {
             const originalSrc = card.src;
             const newSrc = modifyImageUrl(originalSrc);
 
-            // Actualiza la imagen del modal
+            
             modalImage.src = newSrc;
 
-            // Muestra el modal (asegúrate de tener un estilo para hacerlo visible)
+            // Show the modal
             modalImage.style.display = 'block';
             modal.style.display = 'flex';
         });
     });
 }
 
-
-
-
 // Function to close the modal
+// 
 if (closeModal) {
 closeModal.addEventListener('click', () => {
     modal.style.display = 'none';
 });
 }
 
-// Close the modal when clicking outside of the modal content
+// and also close the modal when clicking outside of it
 window.addEventListener('click', (e) => {
     if (e.target === modal) {
         modal.style.display = 'none';

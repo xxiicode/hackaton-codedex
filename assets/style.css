@@ -1,4 +1,4 @@
-/* Generals */
+/* Fonts */
 @font-face {
     font-family: 'ComicSans';
     src: url('/assets/comicsans_regular.ttf') format('truetype');
@@ -11,6 +11,7 @@
     font-weight: bold;
 }
 
+/* Generals */
 body {
     font-family: "ComicSans", cursive, sans-serif;
     margin: 0;
@@ -39,7 +40,7 @@ h2 {
 
 }
 
-
+/* Styles mostly for pokedex page */
 /* SECTION NAV */
 .gif-container {
     display: flex;
@@ -123,7 +124,7 @@ body#home main {
 
 }
 
-/* COVER VACIO */
+/* COVER section */
 & .cover {
     text-align: center;
     grid-area: cover;
@@ -272,10 +273,7 @@ aside {
 }
 
 
-
-
-
-/* Estilos del banner */
+/* Banner HELLOBAR */
 .banner {
     background-color: #ffcc00;
 
@@ -298,17 +296,14 @@ aside {
     }
 }
 
-
-
-
-/* HOME*/
+/* HOME PAGE */
 
 #home-logo {
     animation: growLogo 2s infinite;
 }
 
 
-/* CONTACT*/
+/* CONTACT PAGE */
 main.contact {
     display: flex;
     flex-direction: column;
@@ -329,7 +324,7 @@ main.contact {
     }
 }
 
-/* Nostalgia */
+/* Nostalgia PAGE */
 
 body#nostalgia {
     background-image: url('/assets/imgs/background.jpg');
@@ -367,6 +362,7 @@ body#nostalgia main {
         border-radius: 5px;
         text-align: center;
     }
+
     & img {
         border: 2px solid #000;
         border-radius: 5px;
@@ -374,9 +370,6 @@ body#nostalgia main {
     }
 
 }
-
-
-
 
 /* MEDIAQUERIES */
 
