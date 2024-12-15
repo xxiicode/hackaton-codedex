@@ -291,9 +291,11 @@ function setupCardClickListener() {
 
 
 // Function to close the modal
+if (closeModal) {
 closeModal.addEventListener('click', () => {
     modal.style.display = 'none';
 });
+}
 
 // Close the modal when clicking outside of the modal content
 window.addEventListener('click', (e) => {
